@@ -11,10 +11,11 @@
 body{
   margin:0;
   font-family:'EB Garamond', serif;
-  background:black;
-  color:white;
+  background:#fff;
+  color:black;
   overflow-x:hidden;
   scroll-behavior: smooth;
+  font-size:1.2em;
 }
 
 /* верхняя текстовая навигация */
@@ -23,30 +24,28 @@ body{
   justify-content:center;
   gap:15px;
   padding:10px 0;
-  font-size:14px;
+  font-size:12px;
   letter-spacing:0.5px;
   opacity:0.85;
 }
-
 .navbar a{
-  color:#fff;
+  color:#000;
   text-decoration:none;
   cursor:pointer;
   position:relative;
 }
-
 .navbar a:hover::after{
   content:"";
   position:absolute;
   left:0; bottom:-2px;
   width:100%; height:1px;
-  background:#fff;
+  background:#000;
 }
 
 /* постер */
 .hero{
   height:100vh;
-  background:url("hero.jpg.png") center no-repeat;
+  background:black url("hero.jpg.png") center no-repeat;
   background-size:contain;
   display:flex;
   align-items:center;
@@ -54,7 +53,6 @@ body{
   position:relative;
   z-index:1;
 }
-
 @media (max-width:768px){
   .hero{
     background:url("poster.jpg.PNG") center no-repeat;
@@ -68,22 +66,22 @@ body{
   margin:auto;
   padding:80px 40px;
   line-height:1.8;
-  position:relative;
-  z-index:1;
+  background:#fff;
+  color:black;
 }
-
 .section p{
   text-indent:0;
   text-transform: lowercase;
   margin-bottom:1em;
 }
-
 h2{
-  font-size:36px;
+  font-size:3em;
   margin-bottom:30px;
+  text-transform:uppercase;
+  color:black;
 }
 
-/* блок актер */
+/* актер */
 .actor-block{
   display:flex;
   flex-wrap:wrap;
@@ -91,33 +89,28 @@ h2{
   align-items:flex-start;
   margin-top:30px;
 }
-
 .actor-block img{
-  max-width:300px;
+  max-width:350px;
   width:100%;
-  border:2px solid #555;
+  border:2px solid #000;
 }
 
-/* команда: каждый член в колонке */
+/* команда */
 .team-block{
   display:flex;
   flex-direction:column;
-  gap:40px;
+  gap:50px;
   margin-top:30px;
 }
-
 .team-member{
   display:flex;
-  flex-wrap:wrap;
   gap:30px;
   align-items:flex-start;
 }
-
 .team-member img{
   width:250px;
-  border:2px solid #555;
+  border:2px solid #000;
 }
-
 .team-member .text{
   flex:1;
 }
@@ -129,18 +122,16 @@ h2{
   flex-wrap:wrap;
   margin-top:20px;
 }
-
 .button{
-  border:2px solid white;
+  border:2px solid black;
   padding:12px 18px;
   text-decoration:none;
-  color:white;
+  color:black;
   transition:0.2s;
-  background:#111;
+  background:#fff;
   font-family:'EB Garamond', serif;
   position:relative;
 }
-
 .button::after{
   content:"";
   position:absolute;
@@ -150,31 +141,28 @@ h2{
   pointer-events:none;
   mix-blend-mode:screen;
 }
-
 .button:hover{
-  background:#222;
-  color:#ff0;
+  background:#eee;
+  color:#000;
 }
 
-/* адрес с картой */
+/* адрес */
 .address-block{
   display:flex;
   flex-wrap:wrap;
   gap:20px;
   margin-top:20px;
 }
-
 .address-block iframe{
   flex:1;
   min-height:300px;
   border:0;
 }
-
 .address-block .text{
   flex:1;
 }
 
-/* общий шум/глитч по всей странице */
+/* шум/рябь по всей странице */
 .noise{
   position:fixed;
   top:0;
@@ -188,7 +176,6 @@ h2{
   mix-blend-mode:screen;
   animation:noiseFlicker 0.08s infinite;
 }
-
 @keyframes noiseFlicker{
   0%,50%,100%{opacity:0.07;}
   25%,75%{opacity:0.12;}
@@ -199,7 +186,6 @@ h2{
 
 <div class="noise"></div>
 
-<!-- верхняя текстовая навигация -->
 <div class="navbar">
   <a href="#about">о спектакле</a>
   <a href="#actor">актер</a>
@@ -212,7 +198,7 @@ h2{
 
 <!-- о спектакле -->
 <section class="section" id="about">
-<h2>о спектакле</h2>
+<h2>О СПЕКТАКЛЕ</h2>
 <p>постановка предлагает новый способ осмысления науки через театр. в центре внимания – фигура владимира зворыкина, русского ученого, с начала xx века разрабатывавшего способы передачи движущегося изображения на расстояние, легендарного изобретателя, чьи открытия сделали возможным коммерческое телевидение.</p>
 <p>в синтетическом проекте «эфир» научная работа становится частью действия: зрители видят реальные радиофизические процессы, а не их имитацию.</p>
 <p>в сценическом пространстве располагаются экраны телевизоров и аутентично воссозданные приборы, преобразующие движущееся изображение в электрические сигналы.</p>
@@ -223,54 +209,82 @@ h2{
 
 <!-- актер -->
 <section class="section" id="actor">
-<h2>актер</h2>
+<h2>АКТЕР</h2>
 <div class="actor-block">
   <img src="анвар_либабов.jpg" alt="Анвар Либабов">
   <div class="text">
-    <strong>владимир зворыкин — анвар либабов</strong>
-    <p>актер театра и кино, клоун. С 1987 года – артист театра «Лицедеи». сотрудничает с театрами: «Приют Комедианта», Санкт-Петербургский театр «Русская антреприза» имени Андрея Миронова, «Современник» </p>
+    <strong>Владимир Зворыкин – Анвар Либабов</strong>
+    <p>актер театра и кино, клоун</p>
+    <p>с 1987 года – артист театра «Лицедеи». сотрудничает с театрами: БДТ, «Приют Комедианта», Санкт-Петербургский театр «Русская антреприза» имени Андрея Миронова, «Современник»</p>
   </div>
 </div>
 </section>
 
 <!-- команда -->
 <section class="section" id="team">
-<h2>команда</h2>
+<h2>КОМАНДА</h2>
 <div class="team-block">
   <div class="team-member">
     <img src="федор_федотов.JPG" alt="Федор Федотов">
-    <p><strong>режиссер — федор федотов</strong> режиссёр нового поколения, вошедший в список Blueprint-100 (2025) как одна из ключевых фигур будущего музыкального театра. его путь - от дебюта с бриттеновской "Рекой Керлью" в Пермской опере до преподавания в Санкт-Петербургской консерватории и кураторства в Дягилевском фестивале - отражает смену театральной оптики: от академизма к живому эксперименту</p>
+    <div class="text">
+      <strong>Федор Федотов</strong>
+      <p>режиссёр нового поколения, вошедший в список Blueprint-100 (2025) как одна из ключевых фигур будущего музыкального театра</p>
+      <p>его путь - от дебюта с бриттеновской "Рекой Керлью" в Пермской опере до преподавания в Санкт-Петербургской консерватории и кураторства в Дягилевском фестивале - отражает смену театральной оптики: от академизма к живому эксперименту</p>
+    </div>
   </div>
   <div class="team-member">
     <img src="анастасия_евграфова.JPG" alt="Анастасия Евграфова">
-    <p><strong>драматург — анастасия евграфова</strong> актриса, режиссер, сценарист. окончила московскую школу нового кино, курс режиссуры мастерская Артура Аристакисяна и Щепкинское театральное училище.</p>
+    <div class="text">
+      <strong>Анастасия Евграфова</strong>
+      <p>сценарист, актриса, режиссер</p>
+      <p>окончила московскую школу нового кино, курс режиссуры мастерская Артура Аристакисяна и Щепкинское театральное училище</p>
+    </div>
   </div>
   <div class="team-member">
     <img src="филипп_шейн.jpg" alt="Филипп Шейн">
-    <p><strong>сценография — филипп шейн</strong> окончил Школу-Студию МХАТ, факультет сценографии (2021). с 2019 года работает в таких театрах, как Современник, театр на Таганке, Сатирикон, театр имени Вл. Маяковского, Студия театрального искусства С. Женовача, театр имени Е.Б. Вахтангова, театр на Малой Бронной, театр имени М.Ф. Ермоловой.</p>
+    <div class="text">
+      <strong>Филипп Шейн</strong>
+      <p>сценограф</p>
+      <p>окончил Школу-Студию МХАТ, факультет сценографии (2021). с 2019 года работает в таких театрах, как Современник, театр на Таганке, Сатирикон, театр имени Вл. Маяковского, Студия театрального искусства С. Женовача, театр имени Е.Б. Вахтангова, театр на Малой Бронной, театр имени М.Ф. Ермоловой</p>
+    </div>
   </div>
   <div class="team-member">
     <img src="андрей_платонов.jpg" alt="Андрей Платонов">
-    <p><strong>музыка — андрей платонов</strong> композитор, пишущий академическую и электронную музыку, автор и продюсер театральных проектов </p>
+    <div class="text">
+      <strong>Андрей Платонов</strong>
+      <p>композитор</p>
+      <p>пишет академическую и электронную музыку, автор и продюсер театральных проектов</p>
+    </div>
   </div>
   <div class="team-member">
     <img src="алексей_хорьков.jpg" alt="Алексей Хорьков">
-    <p><strong>свет — алексей хорьков</strong> художник по свету, сотрудничает с Пермским театром оперы и балета им. П.И.Чайковского</p>
+    <div class="text">
+      <strong>Алексей Хорьков</strong>
+      <p>художник по свету, сотрудничает с Пермским театром оперы и балета им. П.И.Чайковского</p>
+    </div>
   </div>
   <div class="team-member">
     <img src="даниил_зуев.png" alt="Даниил Зуев">
-    <p><strong>видео — даниил зуев</strong> цифровой художник, студент университета ИТМО. специализируется на компьютерной графике, занимается социальныи проектами</p>
+    <div class="text">
+      <strong>Даниил Зуев</strong>
+      <p>цифровой художник</p>
+      <p>студент университета ИТМО, специализируется на компьютерной графике, занимается социальными проектами</p>
+    </div>
   </div>
   <div class="team-member">
     <img src="анастасия_иванова.jpg" alt="Анастасия Иванова">
-    <p><strong>ассистент режиссера — анастасия иванова</strong> студентка Санкт-Петербургской консерватории</p>
+    <div class="text">
+      <strong>Анастасия Иванова</strong>
+      <p>ассистент режиссера</p>
+      <p>студентка Санкт-Петербургской консерватории</p>
+    </div>
   </div>
 </div>
 </section>
 
 <!-- ближайшие показы -->
 <section class="section" id="shows">
-<h2>ближайшие показы</h2>
+<h2>БЛИЖАЙШИЕ ПОКАЗЫ</h2>
 <div class="shows">
   <a class="button" href="#">25 марта — 18:00</a>
   <a class="button" href="#">25 марта — 21:00</a>
@@ -281,7 +295,7 @@ h2{
 
 <!-- адрес -->
 <section class="section" id="address">
-<h2>адрес</h2>
+<h2>АДРЕС</h2>
 <div class="address-block">
   <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i&source=constructor&ll=58.011,56.195&z=16&l=map&pt=58.011,56.195,flag" allowfullscreen></iframe>
   <div class="text">
@@ -292,9 +306,3 @@ h2{
 
 </body>
 </html>
-
-
-
-
-
-
