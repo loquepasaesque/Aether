@@ -32,7 +32,7 @@ body{
   100%{opacity:0;}
 }
 
-/* помехи по всему сайту */
+/* основной шум */
 .noise{
   position:fixed;
   top:0;
@@ -40,20 +40,83 @@ body{
   width:100%;
   height:100%;
   background: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif") repeat;
-  opacity:0.2; /* интенсивность помех */
+  opacity:0.15;
   pointer-events:none;
   z-index:999;
-  mix-blend-mode:screen; /* делает эффект видимым поверх текста и фонового изображения */
+  mix-blend-mode:screen;
+  animation:noiseFlicker 0.1s infinite;
 }
 
-/* постер */
+@keyframes noiseFlicker{
+  0%,50%,100% {opacity:0.15;}
+  25%,75% {opacity:0.25;}
+}
+
+/* цветовые сдвиги (RGB glitch) */
+.glitch::before,
+.glitch::after{
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  background: inherit;
+  mix-blend-mode: screen;
+  z-index:998;
+}
+
+.glitch::before{
+  animation:glitchRed 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 2%, 100% 3%, 100% 5%, 0 4%);
+  background: red;
+  opacity:0.05;
+}
+
+.glitch::after{
+  animation:glitchBlue 1.5s infinite linear alternate-reverse;
+  clip-path: polygon(0 10%, 100% 12%, 100% 14%, 0 13%);
+  background: cyan;
+  opacity:0.05;
+}
+
+@keyframes glitchRed{
+  0%{transform: translate(0px,0px);}
+  20%{transform: translate(-2px,1px);}
+  40%{transform: translate(2px,-1px);}
+  60%{transform: translate(-1px,2px);}
+  80%{transform: translate(1px,-2px);}
+  100%{transform: translate(0px,0px);}
+}
+
+@keyframes glitchBlue{
+  0%{transform: translate(0px,0px);}
+  20%{transform: translate(1px,-1px);}
+  40%{transform: translate(-1px,1px);}
+  60%{transform: translate(2px,-2px);}
+  80%{transform: translate(-2px,2px);}
+  100%{transform: translate(0px,0px);}
+}
+
+/* постер для десктопа */
 .hero{
   height:100vh;
-  background:url("hero.jpg.png") center no-repeat;
+  background: url("hero.jpg.png") center no-repeat;
   background-size:contain;
   display:flex;
   align-items:center;
   justify-content:center;
+  position:relative;
+  z-index:1;
+}
+
+/* постер для мобильных */
+@media (max-width: 768px) {
+  .hero{
+    background: url("poster.jpg.PNG") center no-repeat;
+    background-size:contain;
+  }
 }
 
 /* секции */
@@ -62,6 +125,8 @@ body{
   margin:auto;
   padding:50px 20px;
   line-height:1.6;
+  position:relative;
+  z-index:1;
 }
 
 h2{
@@ -102,6 +167,8 @@ h2{
   text-decoration:none;
   color:white;
   transition:0.2s;
+  position:relative;
+  z-index:2;
 }
 
 .button:hover{
@@ -115,6 +182,8 @@ h2{
 
 <div id="boot"></div>
 <div class="noise"></div>
+
+<div class="glitch">
 
 <section class="hero"></section>
 
@@ -166,6 +235,8 @@ c²-command
 </div>
 </section>
 
+</div> <!-- /glitch -->
+
 <script>
 const boot = document.getElementById('boot');
 boot.addEventListener('animationend', () => {
@@ -175,4 +246,3 @@ boot.addEventListener('animationend', () => {
 
 </body>
 </html>
-
