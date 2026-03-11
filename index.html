@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <title>ЭФИР — Сайт спектакля</title>
 
-<!-- Подключаем EB Garamond с Google Fonts -->
+<!-- Шрифт EB Garamond -->
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body{
+body {
   margin:0;
   font-family:'EB Garamond', serif;
   background:#fff;
@@ -18,23 +18,23 @@ body{
   font-size:1.2em;
 }
 
-/* верхняя текстовая навигация */
-.navbar{
+/* Верхняя навигация */
+.navbar {
   display:flex;
   justify-content:center;
-  gap:15px;
-  padding:10px 0;
-  font-size:12px;
+  gap:30px;
+  padding:15px 0;
+  font-size:24px; /* увеличен в 2 раза */
   letter-spacing:0.5px;
   opacity:0.85;
 }
-.navbar a{
+.navbar a {
   color:#000;
   text-decoration:none;
   cursor:pointer;
   position:relative;
 }
-.navbar a:hover::after{
+.navbar a:hover::after {
   content:"";
   position:absolute;
   left:0; bottom:-2px;
@@ -42,8 +42,8 @@ body{
   background:#000;
 }
 
-/* постер */
-.hero{
+/* Постер */
+.hero {
   height:100vh;
   background:black url("hero.jpg.png") center no-repeat;
   background-size:contain;
@@ -54,75 +54,77 @@ body{
   z-index:1;
 }
 @media (max-width:768px){
-  .hero{
+  .hero {
     background:url("poster.jpg.PNG") center no-repeat;
     background-size:contain;
   }
 }
 
-/* секции */
-.section{
+/* Секции */
+.section {
   max-width:1200px;
   margin:auto;
-  padding:80px 40px;
+  padding:80px 4cm;
   line-height:1.8;
   background:#fff;
   color:black;
 }
-.section p{
-  text-indent:0;
-  text-transform: lowercase;
-  margin-bottom:1em;
-}
-h2{
+h2 {
   font-size:3em;
   margin-bottom:30px;
   text-transform:uppercase;
   color:black;
 }
 
-/* актер */
-.actor-block{
+/* Актер */
+.actor-block {
   display:flex;
   flex-wrap:wrap;
   gap:40px;
   align-items:flex-start;
   margin-top:30px;
 }
-.actor-block img{
-  max-width:350px;
+.actor-block img {
+  max-width:400px;
   width:100%;
-  border:2px solid #000;
 }
-
-/* команда */
-.team-block{
+.actor-block .text {
+  flex:1;
   display:flex;
   flex-direction:column;
-  gap:50px;
+  justify-content:flex-start;
+}
+
+/* Команда */
+.team-block {
+  display:flex;
+  flex-direction:column;
+  gap:70px;
   margin-top:30px;
 }
-.team-member{
+.team-member {
   display:flex;
   gap:30px;
   align-items:flex-start;
 }
-.team-member img{
-  width:250px;
-  border:2px solid #000;
+.team-member img {
+  width:300px;
 }
-.team-member .text{
+.team-member .text {
   flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
 }
 
-/* кнопки билетов */
-.shows{
+/* Кнопки билетов */
+.shows {
   display:flex;
   gap:15px;
   flex-wrap:wrap;
   margin-top:20px;
 }
-.button{
+.button {
   border:2px solid black;
   padding:12px 18px;
   text-decoration:none;
@@ -132,7 +134,7 @@ h2{
   font-family:'EB Garamond', serif;
   position:relative;
 }
-.button::after{
+.button::after {
   content:"";
   position:absolute;
   top:0; left:0; width:100%; height:100%;
@@ -141,29 +143,28 @@ h2{
   pointer-events:none;
   mix-blend-mode:screen;
 }
-.button:hover{
+.button:hover {
   background:#eee;
-  color:#000;
 }
 
-/* адрес */
-.address-block{
+/* Адрес */
+.address-block {
   display:flex;
   flex-wrap:wrap;
   gap:20px;
   margin-top:20px;
 }
-.address-block iframe{
+.address-block iframe {
   flex:1;
   min-height:300px;
   border:0;
 }
-.address-block .text{
+.address-block .text {
   flex:1;
 }
 
-/* шум/рябь по всей странице */
-.noise{
+/* Общий шум/рябь на фоне */
+.noise {
   position:fixed;
   top:0;
   left:0;
@@ -186,6 +187,7 @@ h2{
 
 <div class="noise"></div>
 
+<!-- Навигация -->
 <div class="navbar">
   <a href="#about">о спектакле</a>
   <a href="#actor">актер</a>
@@ -194,20 +196,21 @@ h2{
   <a href="#address">адрес</a>
 </div>
 
+<!-- Постер -->
 <section class="hero"></section>
 
-<!-- о спектакле -->
+<!-- О спектакле -->
 <section class="section" id="about">
 <h2>О СПЕКТАКЛЕ</h2>
-<p>постановка предлагает новый способ осмысления науки через театр. в центре внимания – фигура владимира зворыкина, русского ученого, с начала xx века разрабатывавшего способы передачи движущегося изображения на расстояние, легендарного изобретателя, чьи открытия сделали возможным коммерческое телевидение.</p>
-<p>в синтетическом проекте «эфир» научная работа становится частью действия: зрители видят реальные радиофизические процессы, а не их имитацию.</p>
+<p>постановка предлагает новый способ осмысления науки через театр. в центре внимания – фигура Владимира Зворыкина, русского ученого, с начала XX века разрабатывавшего способы передачи движущегося изображения на расстояние, легендарного изобретателя, чьи открытия сделали возможным коммерческое телевидение.</p>
+<p>в синтетическом проекте «Эфир» научная работа становится частью действия: зрители видят реальные радиофизические процессы, а не их имитацию.</p>
 <p>в сценическом пространстве располагаются экраны телевизоров и аутентично воссозданные приборы, преобразующие движущееся изображение в электрические сигналы.</p>
 <p>эксперименты и научные демонстрации, проводимые с их помощью, сочетаются с театральным повествованием.</p>
 <p>специально созданные для постановки видеоарт и музыка формируют многослойную историю.</p>
-<p>владимир зворыкин оказывается внутри своего изобретения и наблюдает, как его творение изменило мир.</p>
+<p>Владимир Зворыкин оказывается внутри своего изобретения и наблюдает, как его творение изменило мир.</p>
 </section>
 
-<!-- актер -->
+<!-- Актер -->
 <section class="section" id="actor">
 <h2>АКТЕР</h2>
 <div class="actor-block">
@@ -220,7 +223,7 @@ h2{
 </div>
 </section>
 
-<!-- команда -->
+<!-- Команда -->
 <section class="section" id="team">
 <h2>КОМАНДА</h2>
 <div class="team-block">
@@ -232,6 +235,7 @@ h2{
       <p>его путь - от дебюта с бриттеновской "Рекой Керлью" в Пермской опере до преподавания в Санкт-Петербургской консерватории и кураторства в Дягилевском фестивале - отражает смену театральной оптики: от академизма к живому эксперименту</p>
     </div>
   </div>
+
   <div class="team-member">
     <img src="анастасия_евграфова.JPG" alt="Анастасия Евграфова">
     <div class="text">
@@ -240,6 +244,7 @@ h2{
       <p>окончила московскую школу нового кино, курс режиссуры мастерская Артура Аристакисяна и Щепкинское театральное училище</p>
     </div>
   </div>
+
   <div class="team-member">
     <img src="филипп_шейн.jpg" alt="Филипп Шейн">
     <div class="text">
@@ -248,6 +253,7 @@ h2{
       <p>окончил Школу-Студию МХАТ, факультет сценографии (2021). с 2019 года работает в таких театрах, как Современник, театр на Таганке, Сатирикон, театр имени Вл. Маяковского, Студия театрального искусства С. Женовача, театр имени Е.Б. Вахтангова, театр на Малой Бронной, театр имени М.Ф. Ермоловой</p>
     </div>
   </div>
+
   <div class="team-member">
     <img src="андрей_платонов.jpg" alt="Андрей Платонов">
     <div class="text">
@@ -256,13 +262,16 @@ h2{
       <p>пишет академическую и электронную музыку, автор и продюсер театральных проектов</p>
     </div>
   </div>
+
   <div class="team-member">
     <img src="алексей_хорьков.jpg" alt="Алексей Хорьков">
     <div class="text">
       <strong>Алексей Хорьков</strong>
-      <p>художник по свету, сотрудничает с Пермским театром оперы и балета им. П.И.Чайковского</p>
+      <p>художник по свету</p>
+      <p>сотрудничает с Пермским театром оперы и балета им. П.И.Чайковского</p>
     </div>
   </div>
+
   <div class="team-member">
     <img src="даниил_зуев.png" alt="Даниил Зуев">
     <div class="text">
@@ -271,6 +280,7 @@ h2{
       <p>студент университета ИТМО, специализируется на компьютерной графике, занимается социальными проектами</p>
     </div>
   </div>
+
   <div class="team-member">
     <img src="анастасия_иванова.jpg" alt="Анастасия Иванова">
     <div class="text">
@@ -282,7 +292,7 @@ h2{
 </div>
 </section>
 
-<!-- ближайшие показы -->
+<!-- Ближайшие показы -->
 <section class="section" id="shows">
 <h2>БЛИЖАЙШИЕ ПОКАЗЫ</h2>
 <div class="shows">
@@ -293,11 +303,11 @@ h2{
 </div>
 </section>
 
-<!-- адрес -->
+<!-- Адрес -->
 <section class="section" id="address">
 <h2>АДРЕС</h2>
 <div class="address-block">
-  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i&source=constructor&ll=58.011,56.195&z=16&l=map&pt=58.011,56.195,flag" allowfullscreen></iframe>
+  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A33869299490&source=constructor&ll=56.198595%2C58.007503&z=16" allowfullscreen></iframe>
   <div class="text">
     <p>театр «балет евгения панфилова»<br>пермь, петропавловская 185</p>
   </div>
