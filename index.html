@@ -88,31 +88,38 @@ h2{
   display:flex;
   flex-wrap:wrap;
   gap:40px;
-  align-items:center;
+  align-items:flex-start;
   margin-top:30px;
 }
 
 .actor-block img{
-  max-width:350px;
+  max-width:300px;
   width:100%;
   border:2px solid #555;
 }
 
-/* команда */
+/* команда: каждый член в колонке */
 .team-block{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display:flex;
+  flex-direction:column;
   gap:40px;
   margin-top:30px;
-  align-items:start;
+}
+
+.team-member{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  align-items:flex-start;
 }
 
 .team-member img{
-  width:100%;
-  max-width:300px;
-  display:block;
-  margin-bottom:15px;
+  width:250px;
   border:2px solid #555;
+}
+
+.team-member .text{
+  flex:1;
 }
 
 /* кнопки билетов */
@@ -219,9 +226,9 @@ h2{
 <h2>актер</h2>
 <div class="actor-block">
   <img src="анвар_либабов.jpg" alt="Анвар Либабов">
-  <div>
+  <div class="text">
     <strong>владимир зворыкин — анвар либабов</strong>
-    <p>актер театра и кино, клоун. сотрудничает с театрами: БДТ, «Приют Комедианта», Санкт-Петербургский театр «Русская антреприза» имени Андрея Миронова, «Современник».</p>
+    <p>краткая биография актера, описание роли.</p>
   </div>
 </div>
 </section>
@@ -285,6 +292,7 @@ h2{
 
 </body>
 </html>
+
 
 
 
