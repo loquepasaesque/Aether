@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>ЭФИР — Сайт спектакля</title>
 <style>
-/* базовые стили */
 body{
   margin:0;
   font-family:Helvetica, Arial, sans-serif;
@@ -14,15 +13,16 @@ body{
   scroll-behavior: smooth;
 }
 
-/* верхние кнопки-пульт */
+/* верхняя навигация */
 .navbar{
-  position:fixed;
-  top:10px;
-  left:50%;
-  transform:translateX(-50%);
   display:flex;
-  gap:10px;
-  z-index:10;
+  justify-content:center;
+  gap:12px;
+  padding:15px 0;
+  background:#111;
+  box-shadow:0 0 10px #000 inset;
+  position:relative;
+  z-index:2;
 }
 
 .nav-button{
@@ -44,7 +44,7 @@ body{
   position:absolute;
   top:0; left:0; width:100%; height:100%;
   background:url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif") repeat;
-  opacity:0.05;
+  opacity:0.08; /* более заметная рябь */
   pointer-events:none;
   mix-blend-mode:screen;
 }
@@ -84,7 +84,6 @@ body{
   z-index:1;
 }
 
-/* заголовки */
 h2{
   font-size:32px;
   margin-bottom:20px;
@@ -134,7 +133,7 @@ h2{
   position:absolute;
   top:0; left:0; width:100%; height:100%;
   background:url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif") repeat;
-  opacity:0.05;
+  opacity:0.08; /* более заметная рябь */
   pointer-events:none;
   mix-blend-mode:screen;
 }
@@ -162,7 +161,7 @@ h2{
   flex:1;
 }
 
-/* слабый общий шум */
+/* общий шум/глитч по всей странице */
 .noise{
   position:fixed;
   top:0;
@@ -174,12 +173,21 @@ h2{
   pointer-events:none;
   z-index:0;
   mix-blend-mode:screen;
+  animation:noiseFlicker 0.08s infinite;
 }
+
+@keyframes noiseFlicker{
+  0%,50%,100%{opacity:0.05;}
+  25%,75%{opacity:0.12;}
+}
+
 </style>
 </head>
 <body>
 
-<!-- верхние кнопки-пульт -->
+<div class="noise"></div>
+
+<!-- верхняя навигация -->
 <div class="navbar">
   <a class="nav-button" href="#about">О спектакле</a>
   <a class="nav-button" href="#actor">Актер</a>
@@ -187,8 +195,6 @@ h2{
   <a class="nav-button" href="#shows">Ближайшие показы</a>
   <a class="nav-button" href="#address">Адрес</a>
 </div>
-
-<div class="noise"></div>
 
 <section class="hero"></section>
 
@@ -248,7 +254,7 @@ h2{
 <section class="section" id="address">
 <h2>Адрес</h2>
 <div class="address-block">
-  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample&source=constructor" allowfullscreen></iframe>
+  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i&source=constructor&ll=56.195,58.011&z=16&l=map&pt=58.011,56.195,flag" allowfullscreen></iframe>
   <div class="text">
     <p>Театр «Балет Евгения Панфилова»<br>Пермь, Петропавловская 185</p>
   </div>
