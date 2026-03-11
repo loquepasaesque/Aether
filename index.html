@@ -2,107 +2,63 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>ЭФИР</title>
-
+<title>ЭФИР — Сайт спектакля</title>
 <style>
+/* базовые стили */
 body{
   margin:0;
+  font-family:Helvetica, Arial, sans-serif;
   background:black;
   color:white;
-  font-family:Helvetica, Arial, sans-serif;
   overflow-x:hidden;
+  scroll-behavior: smooth;
+}
+
+/* верхние кнопки-пульт */
+.navbar{
+  position:fixed;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index:10;
+}
+
+.nav-button{
+  background:#222;
+  border:2px solid #555;
+  padding:8px 14px;
+  color:#fff;
+  font-family:'Courier New', monospace;
+  font-size:14px;
+  cursor:pointer;
+  text-decoration:none;
   position:relative;
+  box-shadow:0 0 2px #fff inset;
+  user-select:none;
 }
 
-/* включение телевизора */
-#boot{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:black;
-  z-index:9999;
-  animation:boot 1.2s forwards;
-}
-
-@keyframes boot{
-  0%{background:black;}
-  40%{background:white;}
-  100%{opacity:0;}
-}
-
-/* основной шум */
-.noise{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif") repeat;
-  opacity:0.15;
+.nav-button::after{
+  content:"";
+  position:absolute;
+  top:0; left:0; width:100%; height:100%;
+  background:url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif") repeat;
+  opacity:0.05;
   pointer-events:none;
-  z-index:999;
   mix-blend-mode:screen;
-  animation:noiseFlicker 0.1s infinite;
 }
 
-@keyframes noiseFlicker{
-  0%,50%,100% {opacity:0.15;}
-  25%,75% {opacity:0.25;}
+.nav-button:hover{
+  background:#333;
+  color:#ff0;
+  border-color:#fff;
 }
 
-/* цветовые сдвиги (RGB glitch) */
-.glitch::before,
-.glitch::after{
-  content: '';
-  position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  background: inherit;
-  mix-blend-mode: screen;
-  z-index:998;
-}
-
-.glitch::before{
-  animation:glitchRed 2s infinite linear alternate-reverse;
-  clip-path: polygon(0 2%, 100% 3%, 100% 5%, 0 4%);
-  background: red;
-  opacity:0.05;
-}
-
-.glitch::after{
-  animation:glitchBlue 1.5s infinite linear alternate-reverse;
-  clip-path: polygon(0 10%, 100% 12%, 100% 14%, 0 13%);
-  background: cyan;
-  opacity:0.05;
-}
-
-@keyframes glitchRed{
-  0%{transform: translate(0px,0px);}
-  20%{transform: translate(-2px,1px);}
-  40%{transform: translate(2px,-1px);}
-  60%{transform: translate(-1px,2px);}
-  80%{transform: translate(1px,-2px);}
-  100%{transform: translate(0px,0px);}
-}
-
-@keyframes glitchBlue{
-  0%{transform: translate(0px,0px);}
-  20%{transform: translate(1px,-1px);}
-  40%{transform: translate(-1px,1px);}
-  60%{transform: translate(2px,-2px);}
-  80%{transform: translate(-2px,2px);}
-  100%{transform: translate(0px,0px);}
-}
-
-/* постер для десктопа */
+/* постер */
 .hero{
   height:100vh;
-  background: url("hero.jpg.png") center no-repeat;
+  background:url("hero.jpg.png") center no-repeat;
   background-size:contain;
   display:flex;
   align-items:center;
@@ -111,10 +67,9 @@ body{
   z-index:1;
 }
 
-/* постер для мобильных */
-@media (max-width: 768px) {
+@media (max-width:768px){
   .hero{
-    background: url("poster.jpg.PNG") center no-repeat;
+    background:url("poster.jpg.PNG") center no-repeat;
     background-size:contain;
   }
 }
@@ -123,126 +78,182 @@ body{
 .section{
   max-width:900px;
   margin:auto;
-  padding:50px 20px;
+  padding:80px 20px;
   line-height:1.6;
   position:relative;
   z-index:1;
 }
 
+/* заголовки */
 h2{
   font-size:32px;
   margin-bottom:20px;
 }
 
-/* команда */
-.team{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-/* консультанты */
-.consultants{
-  margin-top:25px;
-}
-
-/* билеты */
-.shows{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
+/* актер/команда блоки с фото и текстом */
+.flex-block{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  align-items:center;
   margin-top:20px;
 }
 
-.day{
+.flex-block img{
+  max-width:300px;
+  width:100%;
+  border:2px solid #555;
+}
+
+/* текст для актера/команды */
+.flex-block .text{
+  flex:1;
+}
+
+/* кнопки билетов */
+.shows{
   display:flex;
-  flex-direction:column;
-  gap:12px;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:20px;
 }
 
 .button{
-  border:1px solid white;
-  padding:12px;
-  text-align:center;
+  border:2px solid white;
+  padding:12px 18px;
   text-decoration:none;
   color:white;
   transition:0.2s;
   position:relative;
-  z-index:2;
+  background:#111;
+  font-family:'Courier New', monospace;
+}
+
+.button::after{
+  content:"";
+  position:absolute;
+  top:0; left:0; width:100%; height:100%;
+  background:url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif") repeat;
+  opacity:0.05;
+  pointer-events:none;
+  mix-blend-mode:screen;
 }
 
 .button:hover{
-  background:white;
-  color:black;
+  background:#222;
+  color:#ff0;
+}
+
+/* адрес с картой */
+.address-block{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  margin-top:20px;
+}
+
+.address-block iframe{
+  flex:1;
+  min-height:300px;
+  border:0;
+}
+
+.address-block .text{
+  flex:1;
+}
+
+/* слабый общий шум */
+.noise{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif") repeat;
+  opacity:0.05;
+  pointer-events:none;
+  z-index:0;
+  mix-blend-mode:screen;
 }
 </style>
 </head>
-
 <body>
 
-<div id="boot"></div>
-<div class="noise"></div>
+<!-- верхние кнопки-пульт -->
+<div class="navbar">
+  <a class="nav-button" href="#about">О спектакле</a>
+  <a class="nav-button" href="#actor">Актер</a>
+  <a class="nav-button" href="#team">Команда</a>
+  <a class="nav-button" href="#shows">Ближайшие показы</a>
+  <a class="nav-button" href="#address">Адрес</a>
+</div>
 
-<div class="glitch">
+<div class="noise"></div>
 
 <section class="hero"></section>
 
-<section class="section">
+<!-- О спектакле -->
+<section class="section" id="about">
 <h2>О спектакле</h2>
-<p>К Дню театра в Перми режиссер Федор Федотов представит премьеру синтетического спектакля «Эфир» (18+).</p>
-<p>В центре внимания — фигура Владимира Зворыкина, ученого, разработавшего технологии передачи движущегося изображения на расстояние.</p>
+<p>Постановка предлагает новый способ осмысления науки через театр. В центре внимания – фигура Владимира Зворыкина, русского ученого, с начала XX века разрабатывавшего способы передачи движущегося изображения на расстояние, легендарного изобретателя, чьи открытия сделали возможным коммерческое телевидение.</p>
+<p>В синтетическом проекте «Эфир» научная работа становится частью действия: зрители видят реальные радиофизические процессы, а не их имитацию.</p>
+<p>В сценическом пространстве располагаются экраны телевизоров и аутентично воссозданные приборы, преобразующие движущееся изображение в электрические сигналы.</p>
+<p>Эксперименты и научные демонстрации, проводимые с их помощью, сочетаются с театральным повествованием.</p>
+<p>Специально созданные для постановки видеоарт и музыка формируют многослойную историю.</p>
+<p>Владимир Зворыкин оказывается внутри своего изобретения и наблюдает, как его творение изменило мир.</p>
 </section>
 
-<section class="section">
+<!-- Актер -->
+<section class="section" id="actor">
+<h2>Актер</h2>
+<div class="flex-block">
+  <img src="actor.jpg" alt="Владимир Зворыкин">
+  <div class="text">
+    <strong>Владимир Зворыкин — Анвар Либабов</strong>
+    <p>Краткая биография актера, описание роли.</p>
+  </div>
+</div>
+</section>
+
+<!-- Команда -->
+<section class="section" id="team">
 <h2>Команда</h2>
-<div class="team">
-<div>Режиссер — Федор Федотов</div>
-<div>Драматург — Анастасия Евграфова</div>
-<div>В роли Зворыкина — Анвар Либабов</div>
-<div>Сценография — Филипп Шейн</div>
-<div>Музыка — Андрей Платонов</div>
-<div>Свет — Алексей Хорьков</div>
-<div>Видео — Даниил Зуев</div>
-<div>Ассистент режиссера — Анастасия Иванова</div>
-</div>
-
-<div class="consultants">
-<p>Консультанты:</p>
-<p>
-Анна Французова<br>
-Катарина Чокрлич<br>
-c²-command
-</p>
+<div class="flex-block">
+  <img src="team.jpg" alt="Команда">
+  <div class="text">
+    <p><strong>Режиссер — Федор Федотов</strong> Краткая биография</p>
+    <p><strong>Драматург — Анастасия Евграфова</strong> Краткая биография</p>
+    <p><strong>Сценография — Филипп Шейн</strong> Краткая биография</p>
+    <p><strong>Музыка — Андрей Платонов</strong> Краткая биография</p>
+    <p><strong>Свет — Алексей Хорьков</strong> Краткая биография</p>
+    <p><strong>Видео — Даниил Зуев</strong> Краткая биография</p>
+    <p><strong>Ассистент режиссера — Анастасия Иванова</strong> Краткая биография</p>
+    <p>Консультанты: Анна Французова, Катарина Чокрлич, c²-command</p>
+  </div>
 </div>
 </section>
 
-<section class="section">
-<h2>Показы</h2>
-<p>Театр «Балет Евгения Панфилова»<br>Пермь, Петропавловская 185</p>
-
+<!-- Ближайшие показы -->
+<section class="section" id="shows">
+<h2>Ближайшие показы</h2>
 <div class="shows">
-<div class="day">
-<strong>25 марта</strong>
-<a class="button" href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ0NDM2MDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab">18:00</a>
-<a class="button" href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ0NTQ0MDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab">21:00</a>
-</div>
-
-<div class="day">
-<strong>26 марта</strong>
-<a class="button" href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ1MzAwMDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab">18:00</a>
-<a class="button" href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ1NDA4MDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab">21:00</a>
-</div>
+  <a class="button" href="#">25 марта — 18:00</a>
+  <a class="button" href="#">25 марта — 21:00</a>
+  <a class="button" href="#">26 марта — 18:00</a>
+  <a class="button" href="#">26 марта — 21:00</a>
 </div>
 </section>
 
-</div> <!-- /glitch -->
-
-<script>
-const boot = document.getElementById('boot');
-boot.addEventListener('animationend', () => {
-  boot.style.display = 'none';
-});
-</script>
+<!-- Адрес -->
+<section class="section" id="address">
+<h2>Адрес</h2>
+<div class="address-block">
+  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample&source=constructor" allowfullscreen></iframe>
+  <div class="text">
+    <p>Театр «Балет Евгения Панфилова»<br>Пермь, Петропавловская 185</p>
+  </div>
+</div>
+</section>
 
 </body>
 </html>
