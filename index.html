@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>ЭФИР — Сайт спектакля</title>
 
 <!-- Шрифт EB Garamond -->
@@ -65,7 +66,7 @@ body {
 .section {
   max-width:1200px;
   margin:auto;
-  padding:80px 4cm;
+  padding:80px 5%;
   line-height:1.8;
   background:#fff;
   color:black;
@@ -209,11 +210,9 @@ h2 {
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:2cm; /* расстояние между верхним и нижним рядом */
-  padding-left:4cm;
-  padding-right:4cm;
-  padding-bottom:4cm;
-  margin-top:1cm;
+  gap:60px; /* расстояние между верхним и нижним рядом */
+  padding: 0 5% 60px 5%; 
+  margin-top: 40px;
 }
 
 /* Верхний логотип крупный */
@@ -224,16 +223,16 @@ h2 {
 }
 
 /* Нижний ряд */
-.partners-row{
-  display:flex;
-  gap:4cm; /* расстояние между Inkab и Diaghilev Fund */
-  justify-content:center;
-  width:auto;      /* <- важно */
-  }
+partners-row {
+  display: flex;
+  gap: 60px; /* заменили 4cm на пиксели */
+  justify-content: center;
+  flex-wrap: wrap; /* добавили перенос на мобильных */
+}
 
 .partners-row img{
   width:auto;      /* не фиксируем ширину */
-  height:200px;    /* фиксируем высоту для всех */
+  height:120px;    /* фиксируем высоту для всех */
   object-fit:contain; 
 }
   
@@ -275,9 +274,18 @@ body::before {
   }
 
   .navbar{
-    font-size:18px;
-    gap:15px;
-    flex-wrap:wrap;
+    font-size:16px;
+    gap: 10px;
+    padding: 10px 5%; 
+  }
+  
+  .hero {
+    background-size: cover; /* или contain - как вам больше нравится */
+    min-height: 50vh; /* для лучшего отображения */
+  }
+  
+  h2 {
+    font-size: 2em; /* уменьшили заголовки */
   }
 
   .actor-block,
@@ -290,40 +298,72 @@ body::before {
     margin-left:0;
     margin-top:15px;
     max-width:100%;
+    padding: 0 10px; /* добавили небольшие отступы */
   }
 
   .team-member img,
   .actor-block img{
     width:100%;
-    max-width:320px;
+    max-width: 100%; /* убрали ограничение */
+    height: auto;
   }
 
-  .address-block{
-    flex-direction:column;
-    gap:20px;
+  .address-block iframe {
+    width: 100%; /* карта на всю ширину */
+    min-height: 250px;
   }
 
-  .partners{
-    padding-left:5%;
-    padding-right:5%;
-    gap:1.5cm;
-  }
-
-    .partners-row{
-    flex-direction:column;
-    align-items:center;    /* центрируем по ширине */
-    gap:15px;              /* расстояние между логотипами */
-    }
-
-  .partners-row img{
-    height:140px;
-    width:auto;
+  .partners {
+    gap: 40px;
+    padding: 0 5% 40px 5%;
   }
   
-  .partners > img:first-child{
-    height:150px;
-    width:auto;
-    margin-bottom:20px;    /* отступ между верхним и нижним рядом */
+  .partners > img:first-child {
+    width: 100%;
+    height: auto;
+    max-width: 400px; /* ограничили размер */
+  }
+
+  .partners-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+  
+  .partners-row img {
+    height: 100px; /* уменьшили для мобильных */
+    width: auto;
+    max-width: 80%; /* чтобы не упирались в края */
+  }
+  
+  /* Убираем фиксированные отступы в тексте */
+  .address-block .text p:last-child {
+    margin-top: 40px; /* вместо 3cm */
+  }
+  body {
+    font-size: 16px; /* фиксированный размер для читаемости */
+    overflow-x: hidden; /* страхуем от горизонтального скролла */
+  }
+  
+  /* Улучшаем отображение блоков с командами */
+  .team-member {
+    margin-bottom: 40px;
+  }
+  
+  .team-member:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Делаем кнопки билетов более удобными */
+  .ticket-button {
+    padding: 12px 20px; /* увеличили область нажатия */
+    font-size: 16px;
+  }
+  
+  /* Отключаем анимацию шума на мобильных для производительности */
+  .noise {
+    display: none;
   }
 }
 
@@ -511,6 +551,7 @@ diaghilevfestival@gmail.com
   
 </body>
 </html>
+
 
 
 
