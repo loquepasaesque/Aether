@@ -172,7 +172,26 @@ h2 {
 .address-block .text {
   flex:1;
 }
+  
+/* Партнеры */
 
+.partners{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:5.5cm;
+  padding-left:4cm;
+  padding-right:4cm;
+  padding-bottom:4cm;
+  margin-top:4cm;
+}
+
+.partners img{
+  min-height:80px;
+  height:auto;
+  width:auto;
+}
+  
 /* Общий легкий белый шум */
 body::before {
   content:"";
@@ -198,6 +217,52 @@ body::before {
   mix-blend-mode:screen;
   animation:noiseFlicker 0.08s infinite;
 }
+
+  /* эффект включения телевизора */
+
+.tv-start{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  z-index:9999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  animation:tvBoot 1.2s ease forwards;
+}
+
+.tv-start::after{
+  content:"";
+  width:100%;
+  height:2px;
+  background:white;
+  animation:tvLine 0.6s ease forwards;
+}
+
+@keyframes tvLine{
+  0%{
+    transform:scaleX(0);
+  }
+  100%{
+    transform:scaleX(1);
+  }
+}
+
+@keyframes tvBoot{
+  0%{
+    opacity:1;
+  }
+  80%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+    visibility:hidden;
+  }
+}
 @keyframes noiseFlicker{
   0%,50%,100%{opacity:0.02;}
   25%,75%{opacity:0.04;}
@@ -205,6 +270,7 @@ body::before {
 </style>
 </head>
 <body>
+  <div class="tv-start"></div>
 
 <div class="noise"></div>
 
@@ -363,13 +429,34 @@ body::before {
 </div>
 
 <div class="text">
-    <p>театр «Балет Евгения Панфилова»<br>Пермь, Петропавловская, 185</p>
+    <p>
+театр «Балет Евгения Панфилова»<br>
+Пермь, Петропавловская, 185
+</p>
+
+<p style="margin-top:2cm;">
+по всем вопросам
+</p>
+
+<p>
+diaghilevfestival@gmail.com
+</p>
   </div>
 </div>
 </section>
 
+  <!-- Партнеры -->
+<section class="partners">
+
+<img src="rosmolodezh.png" alt="Росмолодежь">
+<img src="inkab.png" alt="Inkab">
+<img src="dighilev-fund.png" alt="Diaghilev Fund">
+
+</section>
+  
 </body>
 </html>
+
 
 
 
