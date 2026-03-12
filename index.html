@@ -179,18 +179,17 @@ h2 {
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:5.5cm;
+  gap:4cm;
 
   padding-left:2cm;
   padding-right:2cm;
   padding-bottom:4cm;
 
-  margin-top:4cm;
+  margin-top:1.5cm;
 }
 
 .partners img{
-  min-width:80px;
-  height:auto;
+  height:70px;
   width:auto;
 }
   
@@ -222,6 +221,53 @@ body::before {
 @keyframes noiseFlicker{
   0%,50%,100%{opacity:0.02;}
   25%,75%{opacity:0.04;}
+}
+  /* мобильная версия */
+
+@media (max-width:768px){
+
+.section{
+padding:40px 20px;
+}
+
+.navbar{
+font-size:18px;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.actor-block,
+.team-member{
+flex-direction:column;
+}
+
+.actor-block .text,
+.team-member .text{
+margin-left:0;
+}
+
+.team-member img{
+width:100%;
+max-width:320px;
+}
+
+.address-block{
+flex-direction:column;
+gap:30px;
+}
+
+.partners{
+gap:30px;
+padding-left:20px;
+padding-right:20px;
+padding-bottom:40px;
+margin-top:40px;
+}
+
+.partners img{
+height:50px;
+}
+
 }
 </style>
 </head>
@@ -392,6 +438,7 @@ diaghilevfestival@gmail.com
   
 </body>
 </html>
+
 
 
 
