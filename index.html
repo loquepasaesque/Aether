@@ -181,19 +181,31 @@ h2 {
   display:flex;
   flex-direction:column;
   align-items:center;
-
-  gap:2cm;
-
+  gap:2cm; /* расстояние между верхним и нижним рядом */
   padding-left:4cm;
   padding-right:4cm;
   padding-bottom:4cm;
-
-  margin-top:0,8cm;
+  margin-top:1cm;
 }
 
-.partners img{
-  width:550px;
+/* Верхний логотип крупный */
+.partners > img:first-child{
+  width:700px;
   max-width:90%;
+  height:auto;
+}
+
+/* Нижний ряд */
+.partners-row{
+  display:flex;
+  gap:4cm; /* расстояние между Inkab и Diaghilev Fund */
+  justify-content:center;
+  width:100%;
+}
+
+.partners-row img{
+  width:300px; /* одинаковый размер для обоих */
+  max-width:45%;
   height:auto;
 }
   
@@ -285,11 +297,26 @@ gap:30px;
 
 /* партнеры */
 
-.partners img{
-width:300px;
+partners{
+    padding-left:20px;
+    padding-right:20px;
+    gap:1.5cm;
+  }
+
+  .partners > img:first-child{
+    width:320px;
+  }
+
+  .partners-row{
+    flex-direction:row; /* всё ещё в строку */
+    gap:20px;
+  }
+
+  .partners-row img{
+    width:140px;
+  }
 }
 
-}
 </style>
 </head>
 <body>
@@ -450,15 +477,19 @@ diaghilevfestival@gmail.com
 
   <!-- Партнеры -->
 <section class="partners">
+  <!-- Rosmolodezh отдельно -->
+  <img src="rosmolodezh.png" alt="Росмолодежь">
 
-<img src="rosmolodezh.png" alt="Росмолодежь">
-<img src="inkab.png" alt="Inkab">
-<img src="dighilev-fund.png" alt="Diaghilev Fund">
-
+  <!-- Нижний ряд: Inkab и Diaghilev Fund -->
+  <div class="partners-row">
+    <img src="inkab.png" alt="Inkab">
+    <img src="dighilev-fund.png" alt="Diaghilev Fund">
+  </div>
 </section>
   
 </body>
 </html>
+
 
 
 
