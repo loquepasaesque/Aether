@@ -229,13 +229,12 @@ h2 {
   gap:4cm; /* расстояние между Inkab и Diaghilev Fund */
   justify-content:center;
   width:auto;      /* <- важно */
-  max-width:90%;   /* чтобы не вылезало за блок */
-}
+  }
 
 .partners-row img{
   width:auto;      /* не фиксируем ширину */
-  height:300px;    /* фиксируем высоту для всех */
-  object-fit:scale-down; /* сохраняет пропорции */
+  height:200px;    /* фиксируем высоту для всех */
+  object-fit:contain; 
 }
   
 /* Общий легкий белый шум */
@@ -313,10 +312,8 @@ body::before {
     .partners-row{
     flex-direction:column;
     align-items:center;    /* центрируем по ширине */
-    gap:20px;              /* расстояние между логотипами */
-    width:auto;
-    max-width:90%;
-  }
+    gap:15px;              /* расстояние между логотипами */
+    }
 
   .partners-row img{
     height:140px;
@@ -514,6 +511,7 @@ diaghilevfestival@gmail.com
   
 </body>
 </html>
+
 
 
 
