@@ -86,7 +86,7 @@ h2 {
   margin-top:30px;
 }
 .actor-block img {
-  max-width:400px;
+  max-width:450px;
   width:100%;
   border:none;
 }
@@ -131,7 +131,7 @@ h2 {
 .shows{
   display:flex;
   flex-wrap:wrap;
-  gap:40px;
+  gap:60px;
   margin-top:20px;
   justify-content:flex-start; /* даты идут слева направо */
 }
@@ -235,7 +235,7 @@ h2 {
 .partners-row img{
   width:auto;      /* не фиксируем ширину */
   height:300px;    /* фиксируем высоту для всех */
-  object-fit:contain; /* сохраняет пропорции */
+  object-fit:scale-down; /* сохраняет пропорции */
 }
   
 /* Общий легкий белый шум */
@@ -310,22 +310,23 @@ body::before {
     gap:1.5cm;
   }
 
-  .partners > img:first-child{
-    height:150px;
+    .partners-row{
+    flex-direction:column;
+    align-items:center;    /* центрируем по ширине */
+    gap:20px;              /* расстояние между логотипами */
     width:auto;
-  }
-
-  .partners-row{
-    flex-direction:row;
-    justify-content:center;
-    gap:20px;
-    width:auto;      /* вместо 100% */
-    max-width:90%;   /* не прижимает логотипы к краям */
+    max-width:90%;
   }
 
   .partners-row img{
     height:140px;
     width:auto;
+  }
+  
+  .partners > img:first-child{
+    height:150px;
+    width:auto;
+    margin-bottom:20px;    /* отступ между верхним и нижним рядом */
   }
 }
 
@@ -513,6 +514,7 @@ diaghilevfestival@gmail.com
   
 </body>
 </html>
+
 
 
 
