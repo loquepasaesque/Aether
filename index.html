@@ -242,80 +242,60 @@ body::before {
 
 @media (max-width:768px){
 
-.section{
-padding:40px 20px;
-}
+  .section{
+    padding:40px 5%; /* заменили фиксированные 4cm на 5% */
+  }
 
-.navbar{
-font-size:18px;
-gap:15px;
-flex-wrap:wrap;
-}
+  .navbar{
+    font-size:18px;
+    gap:15px;
+    flex-wrap:wrap;
+  }
 
-/* актер */
+  .actor-block,
+  .team-member{
+    flex-direction:column;
+  }
 
-.actor-block{
-flex-direction:column;
-}
+  .actor-block .text,
+  .team-member .text{
+    margin-left:0;
+    margin-top:15px;
+    max-width:100%;
+  }
 
-.actor-block img{
-width:100%;
-max-width:320px;
-}
+  .team-member img,
+  .actor-block img{
+    width:100%;
+    max-width:320px;
+  }
 
-.actor-block .text{
-margin-left:0;
-  margin-top:15px; /* небольшой сдвиг под фотографией */
-  max-width:100%;
-}
+  .address-block{
+    flex-direction:column;
+    gap:20px;
+  }
 
-/* команда */
-
-.team-member{
-flex-direction:column;
-align-items:flex-start;
-gap:15px;
-}
-
-.team-member img{
-width:100%;
-max-width:320px;
-}
-
-.team-member .text{
-margin-left:0;
-  margin-top:15px; /* небольшой сдвиг под фотографией */
-  max-width:100%;
-}
-
-/* карта */
-
-.address-block{
-flex-direction:column;
-gap:30px;
-}
-
-/* партнеры */
-
-partners{
-    padding-left:20px;
-    padding-right:20px;
+  .partners{
+    padding-left:5%;
+    padding-right:5%;
     gap:1.5cm;
   }
 
   .partners > img:first-child{
-    width:320px;
+    height:150px;
+    width:auto;
   }
 
   .partners-row{
-    flex-direction:row; /* всё ещё в строку */
+    flex-direction:row;
+    justify-content:center;
     gap:20px;
+    width:100%;
   }
 
   .partners-row img{
     height:140px;
     width:auto;
-    object-fit:contain;
   }
 }
 
@@ -491,6 +471,7 @@ diaghilevfestival@gmail.com
   
 </body>
 </html>
+
 
 
 
