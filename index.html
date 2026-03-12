@@ -204,9 +204,9 @@ h2 {
 }
 
 .partners-row img{
-  width:300px; /* одинаковый размер для обоих */
-  max-width:45%;
-  height:auto;
+  width:auto;      /* не фиксируем ширину */
+  height:300px;    /* фиксируем высоту для всех */
+  object-fit:contain; /* сохраняет пропорции */
 }
   
 /* Общий легкий белый шум */
@@ -313,7 +313,9 @@ partners{
   }
 
   .partners-row img{
-    width:140px;
+    height:140px;
+    width:auto;
+    object-fit:contain;
   }
 }
 
@@ -489,6 +491,7 @@ diaghilevfestival@gmail.com
   
 </body>
 </html>
+
 
 
 
