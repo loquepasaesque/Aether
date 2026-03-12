@@ -175,17 +175,26 @@ h2 {
   
 /* Партнеры */
 
+/* блок партнеров */
+
 .partners{
   display:flex;
-  justify-content:center;
+  flex-direction:column;
   align-items:center;
-  gap:4cm;
 
-  padding-left:2cm;
-  padding-right:2cm;
+  gap:2cm;
+
+  padding-left:4cm;
+  padding-right:4cm;
   padding-bottom:4cm;
 
-  margin-top:1.5cm;
+  margin-top:2cm;
+}
+
+.partners img{
+  max-width:420px;
+  width:100%;
+  height:auto;
 }
 
 .partners img{
@@ -256,16 +265,18 @@ flex-direction:column;
 gap:30px;
 }
 
+@media (max-width:768px){
+
 .partners{
-gap:30px;
 padding-left:20px;
 padding-right:20px;
-padding-bottom:40px;
-margin-top:40px;
+gap:40px;
 }
 
 .partners img{
-height:50px;
+max-width:280px;
+}
+
 }
 
 }
@@ -438,6 +449,7 @@ diaghilevfestival@gmail.com
   
 </body>
 </html>
+
 
 
 
