@@ -127,34 +127,62 @@ h2 {
   font-size:1.5em;
 }  
   
-/* Кнопки билетов */
-.shows {
+/* Блок ближайших показов */
+.shows{
   display:flex;
   flex-wrap:wrap;
-  justify-content:space-between; /* равномерное распределение */
+  gap:40px;
   margin-top:20px;
+  justify-content:flex-start; /* даты идут слева направо */
 }
-.button {
-  border:2px solid black;
-  padding:12px 18px;
+
+.show-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-width:120px; /* чтобы блоки не сжимались */
+}
+
+.show-date{
+  font-size:1.2em;
+  margin-bottom:10px;
+  font-weight:normal;
+  text-align:center;
+}
+
+.ticket-button{
+  display:inline-block;
+  padding:8px 16px;
+  background:#000;
+  color:#fff;
+  font-weight:600; /* полужирный */
   text-decoration:none;
-  color:black;
+  border-radius:4px;
   transition:0.2s;
-  background:#fff;
-  font-family:'EB Garamond', serif;
-  position:relative;
 }
-.button::after {
-  content:"";
-  position:absolute;
-  top:0; left:0; width:100%; height:100%;
-  background:url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif") repeat;
-  opacity:0.08;
-  pointer-events:none;
-  mix-blend-mode:screen;
+
+.ticket-button:hover{
+  background:#333;
 }
-.button:hover {
-  background:#eee;
+  @media (max-width:768px){
+  .shows{
+    flex-direction:column;
+    gap:20px;
+    align-items:flex-start;
+  }
+
+  .show-item{
+    min-width:100%;
+  }
+
+  .show-date{
+    font-size:1.1em;
+  }
+
+  .ticket-button{
+    width:100%;
+    text-align:center;
+  }
 }
 
 /* Адрес */
@@ -200,7 +228,8 @@ h2 {
   display:flex;
   gap:4cm; /* расстояние между Inkab и Diaghilev Fund */
   justify-content:center;
-  width:100%;
+  width:auto;      /* <- важно */
+  max-width:90%;   /* чтобы не вылезало за блок */
 }
 
 .partners-row img{
@@ -290,7 +319,8 @@ body::before {
     flex-direction:row;
     justify-content:center;
     gap:20px;
-    width:100%;
+    width:auto;      /* вместо 100% */
+    max-width:90%;   /* не прижимает логотипы к краям */
   }
 
   .partners-row img{
@@ -416,24 +446,36 @@ body::before {
 
 <!-- Ближайшие показы -->
 <section class="section" id="shows">
-<h2>БЛИЖАЙШИЕ ПОКАЗЫ</h2>
-<div class="shows">
-  <a class="button" href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ0NDM2MDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab" target="_blank">
-  25 марта — 18:00
-  </a>
+  <h2>БЛИЖАЙШИЕ ПОКАЗЫ</h2>
+  <div class="shows">
+    <!-- 25 марта, 18:00 -->
+    <div class="show-item">
+      <div class="show-date">25 марта — 18:00</div>
+      <a href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ0NDM2MDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab"
+         class="ticket-button" target="_blank">Билеты</a>
+    </div>
 
-  <a class="button" href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ0NTQ0MDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab" target="_blank">
-  25 марта — 21:00
-  </a>
+    <!-- 25 марта, 21:00 -->
+    <div class="show-item">
+      <div class="show-date">25 марта — 21:00</div>
+      <a href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ0NTQ0MDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab"
+         class="ticket-button" target="_blank">Билеты</a>
+    </div>
 
-  <a class="button" href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ1MzAwMDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab" target="_blank">
-  26 марта — 18:00
-  </a>
+    <!-- 26 марта, 18:00 -->
+    <div class="show-item">
+      <div class="show-date">26 марта — 18:00</div>
+      <a href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ1MzAwMDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab"
+         class="ticket-button" target="_blank">Билеты</a>
+    </div>
 
-  <a class="button" href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ1NDA4MDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab" target="_blank">
-  26 марта — 21:00
-  </a>
-</div>
+    <!-- 26 марта, 21:00 -->
+    <div class="show-item">
+      <div class="show-date">26 марта — 21:00</div>
+      <a href="https://widget.afisha.yandex.ru/w/sessions/OTgzMTd8ODAxNzEyfDEyMzEzODU1fDE3NzQ1NDA4MDAwMDA=?clientKey=f231cb7b-3c9e-455a-964e-9c556db9f2ab"
+         class="ticket-button" target="_blank">Билеты</a>
+    </div>
+  </div>
 </section>
 
 <!-- Адрес -->
@@ -471,6 +513,7 @@ diaghilevfestival@gmail.com
   
 </body>
 </html>
+
 
 
 
