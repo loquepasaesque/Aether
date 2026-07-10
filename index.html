@@ -206,34 +206,36 @@ h2 {
 
 /* блок партнеров */
 
-.partners{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:60px; /* расстояние между верхним и нижним рядом */
-  padding: 0 5% 60px 5%; 
+.partners {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 0 5% 60px 5%;
   margin-top: 40px;
 }
 
-/* Верхний логотип крупный */
-.partners > img:first-child{
-  width:700px;
-  max-width:90%;
-  height:auto;
+/* Росмолодежь сверху */
+.partner-main img {
+  width: 250px;
+  max-width: 90%;
+  height: auto;
 }
 
 /* Нижний ряд */
-partners-row {
+.partners-row {
   display: flex;
-  gap: 60px; /* заменили 4cm на пиксели */
   justify-content: center;
-  flex-wrap: wrap; /* добавили перенос на мобильных */
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
-.partners-row img{
-  width:auto;      /* не фиксируем ширину */
-  height:120px;    /* фиксируем высоту для всех */
-  object-fit:contain; 
+/* Два нижних логотипа */
+.partners-row img {
+  width: 180px;
+  height: 120px;
+  object-fit: contain;
 }
   
 /* Общий легкий белый шум */
@@ -529,17 +531,18 @@ diaghilevfestival@gmail.com
 
   <!-- Партнеры -->
 <section class="partners">
-  <!-- Rosmolodezh отдельно -->
-  <a href="https://fadm.gov.ru/" target="_blank">
-    <img src="rosmolodezh.png" alt="Росмолодежь">
-  </a>
-</section>
 
-  <!-- Нижний ряд: Inkab и Diaghilev Fund -->
+  <div class="partner-main">
+    <a href="https://fadm.gov.ru/" target="_blank">
+      <img src="rosmolodezh.png" alt="Росмолодежь">
+    </a>
+  </div>
+
   <div class="partners-row">
     <img src="inkab.png" alt="Inkab">
     <img src="dighilev-fund.png" alt="Diaghilev Fund">
   </div>
+
 </section>
   
 </body>
